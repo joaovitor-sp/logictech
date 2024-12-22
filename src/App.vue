@@ -1,24 +1,47 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <nav
+      class="navbar navbar-expand-lg navbar-dark px-4 vw-100"
+      style="background-color: #871cbf"
+    >
+      <img
+        src="./assets/NavBar/logo.png"
+        style="max-width: 50px; max-height: 50px"
+        alt="Logo"
+      />
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link active" href="/">Home</a>
+          <a class="nav-item nav-link" href="#">Quem somos?</a>
+          <a class="nav-item nav-link" href="/contact">Solicitar serviço</a>
+          <a class="nav-item nav-link disabled" href="#"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a class="nav-item nav-link disabled" href="#"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a class="nav-item nav-link disabled" href="#"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a class="nav-item nav-link disabled" href="#"
+            ><i class="fab fa-twitch"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+    <router-view />
 </template>
 
-<style scoped>
-</style>
+<script>
+import { RouterLink, RouterView } from "vue-router";
+</script>
