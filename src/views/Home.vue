@@ -9,25 +9,25 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="/src/assets/Home/slide-0.jpg" alt="Apresentação" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h2>Como podemos te ajudar?</h2>
-              <p>Conte conosco para te ajudar a consertar, comprar e limpar seu computador!</p>
+              <p>Conte conosco para te ajudar a com seu seu computador!</p>
               <a href="" class="main-btn">Ver Serviços</a>
             </div>
           </div>
           <div class="carousel-item">
             <img src="/src/assets/Home/slide-1.jpg" alt="Redes Sociais" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h2>Onde atendemos?</h2>
-              <p>Veja se você está ao nosso alcance para te ajudarmos da melhor forma.</p>
+              <p>Veja se onde atendemos para te ajudarmos da melhor forma.</p>
               <a href="" class="main-btn">Ver mapa</a>
             </div>
           </div>
           <div class="carousel-item">
             <img src="/src/assets/Home/slide-2.jpg" alt="Solicitação de serviço" class="d-block w-100">
-            <div class="carousel-caption d-none d-md-block">
+            <div class="carousel-caption d-md-block">
               <h2>Solicitar serviço</h2>
-              <p>Clique no botão abaixo e preencha o formulário para recebermos sua solicitação.</p>
+              <p>Clique no botão abaixo e envie sua solicitação.</p>
               <a href="" class="main-btn">Solicitar serviço</a>
             </div>
           </div>
@@ -115,5 +115,55 @@
 
   .carousel-item img {
     filter: brightness(0.6) contrast(1.2);
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+
+  .container {
+    padding: 20px 0;
+  }
+
+  /* slider */
+  #mainSlider .carousel-inner, #mainSlider .carousel-item {
+    height: auto;
+  }
+
+  #mainSlider .carousel-caption h2 {
+    font-size: 24px;
+  }
+
+  #mainSlider .carousel-caption p {
+    font-size: 12px;
+    margin-bottom: 40px;
+  }
+
+  .carousel-caption {
+    left: 10%;
+    right: 10%;
+  }
+
+}
+
+@media(max-width: 425px){
+
+  /* slider */
+  #mainSlider {
+    margin-top: 90px;
+  }
+
+  #mainSlider .carousel-caption{
+    top: 5%;
+  }
+
+  #mainSlider .carousel-caption h2 {
+    font-size: 18px;
+    margin-bottom: 40px;
+  }
+
+  #mainSlider .carousel-caption p {
+    display: none;
+  }
+
 }
   </style>
