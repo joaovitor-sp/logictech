@@ -1,75 +1,71 @@
 <template>
   <div id="content-page-contact-container" class="container-fluid p-0 m-0">
-    <div id="content-page-contact-row" class="row p-0 m-0 w-100">
-      <div
-        class="col p-5"
-        style="background-color: dimgray"
-      >
+    <div id="content-page-contact-row" class="p-0 m-0 w-100 h-100">
+      <div class="col p-5" style="background-color: dimgray">
         <div class="row pt-4">
-          <label for="name" class="col col-form-label">Nome:</label>
-            <input
-              type="text"
-              class="col form-control"
-              id="name"
-              placeholder="Digite seu nome"
-            />
+          <label class="col-1 col-form-label">Nome:</label>
+          <input
+            type="text"
+            class="col-10 form-control"
+            id="name"
+            placeholder="Digite seu nome"
+          />
         </div>
         <div class="row pt-4">
-          <label for="email" class="col col-form-label">Email:</label>
-            <input
-              type="text"
-              class="col form-control"
-              id="email"
-              placeholder="Digite seu email"
-            />
+          <label for="email" class="col-1 col-form-label">Email:</label>
+          <input
+            type="text"
+            class="col-10 form-control"
+            id="email"
+            placeholder="Digite seu email"
+          />
         </div>
         <div class="row pt-4">
-          <label for="about" class="col col-form-label"
-            >Assunto:</label
-          >
-            <input
-              type="text"
-              class="col form-control"
-              id="about"
-              placeholder="Digite o assunto"
-            />
+          <label for="about" class="col-1 col-form-label">Assunto:</label>
+          <input
+            type="text"
+            class="col-10 form-control"
+            id="about"
+            placeholder="Digite o assunto"
+          />
         </div>
-        <div class="col pt-4">
-          <label for="name" class="col-form-label"
-            >Mensagem:</label
-          >
-          <div class="col">
+        <div class="row pt-4">
+          <label class="col-form-label">Mensagem:</label>
+        </div>
+        <div class="row pt-4" style="padding-right: 10%;">
             <textarea
               type="text"
               class="form-control"
-              id="name"
+              id="description"
               rows="5"
             ></textarea>
-          </div>
         </div>
       </div>
       <div
         class="flex-wrap justify-items-stretch"
         id="informations"
-        style="background-color: black"
+        style="background-color: black;"
       >
         <div
-          class="col d-flex flex-column"
-          style="height: 40%; align-items: center; justify-content: center"
+          class="card-information col d-flex flex-column"
+          id="location"
+          style="align-items: center; justify-content: center"
         >
           <i class="fa-solid fa-location-dot"></i>
           <span>Localidade</span>
         </div>
         <div
-          class="col d-flex flex-column"
-          style="height: 40%; align-items: center; justify-content: center"
+          class="card-information col d-flex flex-column"
+          id="whatsapp"
+          style="align-items: center; justify-content: center;"
         >
           <i class="fa-brands fa-whatsapp"></i>
           <span>Whatsapp</span>
         </div>
         <div
-          class="col d-flex flex-column"
-          style="height: 40%; align-items: center; justify-content: center"
+          class="card-information col d-flex flex-column"
+          id="email"
+          style="align-items: center; justify-content: center"
         >
           <i class="fa-regular fa-envelope"></i>
           <span>Email de Contato</span>
@@ -80,11 +76,13 @@
 </template>
 
 <style scoped>
-
+#content-page-contact-container {
+  flex: 1;
+}
 #content-page-contact-row {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
 #informations {
   display: flex;
   flex-direction: row;
@@ -93,11 +91,11 @@
   text-align: center;
 }
 i {
-  font-size: 70px;
+  font-size: 40px;
   color: white;
 }
 span {
-  font-size: 30px;
+  font-size: 20px;
   color: white;
 }
 input {
@@ -108,6 +106,11 @@ textarea {
   background-color: rgb(157, 157, 157);
 }
 
+@media (max-width: 767px) {
+  #location, #whatsapp {
+    width: 50%;
+  }
+}
 @media (min-width: 768px) {
   #content-page-contact-row {
     display: flex;
@@ -132,7 +135,9 @@ textarea {
   textarea {
     background-color: rgb(157, 157, 157); /* Fundo Verde claro */
   }
-  input#name, input#about, input#email {
+  input#name,
+  input#about,
+  input#email {
     width: 50vw;
   }
 }

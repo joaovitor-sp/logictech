@@ -13,9 +13,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-a.nav-link {
-  padding: 4px;
-}
-</style>
