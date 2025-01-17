@@ -1,7 +1,7 @@
 <template>
     <header>
     <nav
-      class="navbar navbar-expand-lg navbar-dark px-4 vw-100"
+      class="navbar navbar-expand-lg navbar-dark px-4"
       style="background-color: #871cbf"
     >
       <div class="container-fluid">

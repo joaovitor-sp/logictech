@@ -1,78 +1,77 @@
 <template>
-  <div class="row vw-100 p-0 m-0 d-flex flex-grow-1">
-    <div
-      class="col-3 d-flex flex-column flex-wrap justify-items-stretch"
-      style="background-color: black"
-    >
-      <div class="col d-flex flex-column" style="height: 40%; align-items: center; justify-content: center;">
-        <i class="fa-solid fa-location-dot"></i>
-        <span>Localidade</span>
-      </div>
-      <div class="col d-flex flex-column" style="height: 40%;  align-items: center; justify-content: center;">
-        <i class="fa-regular fa-envelope"></i>
-        <span>Email de Contato</span>
-      </div>
-      <div class="col d-flex flex-column" style="height: 40%;  align-items: center; justify-content: center;">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>Whatsapp</span>
-      </div>
-    </div>
-    <div
-      class="col-9 
-      d-flex 
-      flex-column 
-      flex-wrap
-      align-items-around 
-      justifi-content-around 
-      align-content-around 
-      p-5"
-      style="background-color: dimgray"
-    >
-      <div class="mb-3 row pt-4">
-        <label for="name" class="col-2 col-md-2 col-form-label">Nome:</label>
-        <div class="col-10 col-md-10">
-          <input
-            type="text"
-            class="form-control"
-            style="width: 500px"
-            id="name"
-            placeholder="Digite seu nome"
-          />
+  <div id="content-page-contact-container" class="container-fluid p-0 m-0">
+    <div id="content-page-contact-row" class="row p-0 m-0 w-100">
+      <div
+        class="col p-5"
+        style="background-color: dimgray"
+      >
+        <div class="row pt-4">
+          <label for="name" class="col col-form-label">Nome:</label>
+            <input
+              type="text"
+              class="col form-control"
+              id="name"
+              placeholder="Digite seu nome"
+            />
+        </div>
+        <div class="row pt-4">
+          <label for="email" class="col col-form-label">Email:</label>
+            <input
+              type="text"
+              class="col form-control"
+              id="email"
+              placeholder="Digite seu email"
+            />
+        </div>
+        <div class="row pt-4">
+          <label for="about" class="col col-form-label"
+            >Assunto:</label
+          >
+            <input
+              type="text"
+              class="col form-control"
+              id="about"
+              placeholder="Digite o assunto"
+            />
+        </div>
+        <div class="col pt-4">
+          <label for="name" class="col-form-label"
+            >Mensagem:</label
+          >
+          <div class="col">
+            <textarea
+              type="text"
+              class="form-control"
+              id="name"
+              rows="5"
+            ></textarea>
+          </div>
         </div>
       </div>
-      <div class="mb-3 row pt-4">
-        <label for="name" class="col-2 col-md-2 col-form-label">Email:</label>
-        <div class="col-10 col-md-10">
-          <input
-            type="text"
-            class="form-control"
-            style="width: 500px"
-            id="name"
-            placeholder="Digite seu email"
-          />
+      <div
+        class="col-3 d-flex flex-column flex-wrap justify-items-stretch"
+        style="background-color: black"
+      >
+        <div
+          class="col d-flex flex-column"
+          style="height: 40%; align-items: center; justify-content: center"
+        >
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Localidade</span>
         </div>
-      </div>
-      <div class="mb-3 row pt-4">
-        <label for="name" class="col-2 col-md-2 col-form-label">Assunto:</label>
-        <div class="col-10 col-md-10">
-          <input
-            type="text"
-            class="form-control"
-            style="width: 500px"
-            id="name"
-            placeholder="Digite o assunto"
-          />
+        <div
+          class="col d-flex flex-column"
+          style="height: 40%; align-items: center; justify-content: center"
+        >
+          <i class="fa-regular fa-envelope"></i>
+          <span>Email de Contato</span>
         </div>
-      </div>
-      <div class="mb-3 col pt-4">
-        <label for="name" class="col col-md-2 col-form-label">Mensagem:</label>
-        <div class="col col-md-10">
-          <textarea
-            type="text"
-            class="form-control"
-            id="name"
-            rows="5"
-          ></textarea>
+        <div
+          class="col d-flex flex-column"
+          style="height: 40%; align-items: center; justify-content: center"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Whatsapp</span>
         </div>
       </div>
     </div>
@@ -80,20 +79,50 @@
 </template>
 
 <style scoped>
+
+#content-page-contact-container {
+  display: flex;
+  width: 100%;
+}
 i {
-    font-size: 70px;
-    color: white;
+  font-size: 70px;
+  color: white;
 }
 span {
-    font-size: 30px;
-    color: white;
+  font-size: 30px;
+  color: white;
 }
 input {
-  background-color: rgb(157, 157, 157); /* Fundo amarelo claro */
+  background-color: rgb(157, 157, 157);
 }
 
 textarea {
-    background-color: rgb(157, 157, 157)  ; /* Fundo Verde claro */
+  background-color: rgb(157, 157, 157);
+}
+
+@media (min-width: 768px) {
+  #content-page-contact-container {
+    display: flex;
+    width: 100vw;
+  }
+  i {
+    font-size: 70px;
+    color: white;
+  }
+  span {
+    font-size: 30px;
+    color: white;
+  }
+  input {
+    background-color: rgb(157, 157, 157); /* Fundo amarelo claro */
+  }
+
+  textarea {
+    background-color: rgb(157, 157, 157); /* Fundo Verde claro */
+  }
+  input#name, input#about, input#email {
+    width: 50vw;
+  }
 }
 </style>
 
