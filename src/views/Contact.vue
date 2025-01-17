@@ -49,7 +49,8 @@
         </div>
       </div>
       <div
-        class="col-3 d-flex flex-column flex-wrap justify-items-stretch"
+        class="flex-wrap justify-items-stretch"
+        id="informations"
         style="background-color: black"
       >
         <div
@@ -80,9 +81,16 @@
 
 <style scoped>
 
-#content-page-contact-container {
+#content-page-contact-row {
+    display: flex;
+    flex-direction: column;
+  }
+#informations {
   display: flex;
-  width: 100%;
+  flex-direction: row;
+}
+#informations div span {
+  text-align: center;
 }
 i {
   font-size: 70px;
@@ -101,9 +109,13 @@ textarea {
 }
 
 @media (min-width: 768px) {
-  #content-page-contact-container {
+  #content-page-contact-row {
     display: flex;
-    width: 100vw;
+    flex-direction: row;
+  }
+  #informations {
+    display: flex;
+    flex-direction: column;
   }
   i {
     font-size: 70px;
