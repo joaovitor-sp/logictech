@@ -135,7 +135,7 @@
 
   #mainSlider .carousel-caption p {
     font-size: 12px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 
   .carousel-caption {
@@ -148,12 +148,9 @@
 @media(max-width: 425px){
 
   /* slider */
-  #mainSlider {
-    margin-top: 90px;
-  }
-
   #mainSlider .carousel-caption{
     top: 5%;
+    align-content: center;
   }
 
   #mainSlider .carousel-caption h2 {
