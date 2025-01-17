@@ -93,7 +93,7 @@ input {
 }
 
 textarea {
-    background-color: rgb(157, 157, 157); /* Fundo Verde claro */
+    background-color: rgb(157, 157, 157)  ; /* Fundo Verde claro */
 }
 </style>
 
