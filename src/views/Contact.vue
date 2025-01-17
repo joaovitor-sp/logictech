@@ -64,15 +64,15 @@
           class="col d-flex flex-column"
           style="height: 40%; align-items: center; justify-content: center"
         >
-          <i class="fa-regular fa-envelope"></i>
-          <span>Email de Contato</span>
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Whatsapp</span>
         </div>
         <div
           class="col d-flex flex-column"
           style="height: 40%; align-items: center; justify-content: center"
         >
-          <i class="fa-brands fa-whatsapp"></i>
-          <span>Whatsapp</span>
+          <i class="fa-regular fa-envelope"></i>
+          <span>Email de Contato</span>
         </div>
       </div>
     </div>
