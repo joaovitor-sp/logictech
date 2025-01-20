@@ -3,7 +3,7 @@
     class="container-fluid d-flex"
     style="flex-wrap: wrap; gap: 10px; background-color: #871cbf; justify-content: space-around;"
   >
-    <div class="topic m-3">
+    <div class="topic m-2">
       <div class="topic-header">
         <h4>
           <img
@@ -67,12 +67,13 @@
     list-style-type: none;
     font-size: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     padding: 0;
 }
 
 #social-links i {
-    margin-left: 20px;
+    margin-left: 15px;
 }
 
 </style>

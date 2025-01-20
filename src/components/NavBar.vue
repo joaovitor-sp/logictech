@@ -9,7 +9,10 @@
           src="/src/assets/NavBar/logo.png"
           style="max-width: 50px; max-height: 50px"
           alt="Logo"
-        />
+        /> 
+          <h3
+          class="m-0" 
+          style="font-weight: 750; font-size: 30px; font-family: 'Times New Roman', Times, serif;">LogicTech</h3>
         <button
           class="navbar-toggler"
           type="button"
