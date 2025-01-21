@@ -1,7 +1,7 @@
 <template>
   <div id="content-page-contact-container" class="container-fluid p-0 m-0">
     <div id="content-page-contact-row" class="p-0 m-0 w-100 h-100">
-      <div class="col p-5" style="background-color: dimgray">
+      <div class="col p-5" style="background-color: black">
         <div class="row pt-4">
           <label class="col-1 col-form-label">Nome:</label>
           <input
@@ -40,6 +40,7 @@
               rows="5"
             ></textarea>
         </div>
+        <div class="row pt-4 justify-content-end" style="padding-right: 10%;"><button type="button" class="btn btn-primary" style="width: auto;">Enviar Formulário</button></div>
       </div>
       <div
         class="flex-wrap justify-items-stretch"
@@ -52,7 +53,10 @@
           style="align-items: center; justify-content: center"
         >
           <i class="fa-solid fa-location-dot"></i>
-          <span>Localidade</span>
+          <h3>Localidade</h3>
+          <span>Atendemos por visita Técnica<br>
+          em BH e região de Contagem</span>
+
         </div>
         <div
           class="card-information col d-flex flex-column"
@@ -60,7 +64,9 @@
           style="align-items: center; justify-content: center;"
         >
           <i class="fa-brands fa-whatsapp"></i>
-          <span>Whatsapp</span>
+          <h3>Whatsapp:</h3>
+          <span>(31)99252-8746</span>
+          <span>(31)99760-2403</span>
         </div>
         <div
           class="card-information col d-flex flex-column"
@@ -68,7 +74,8 @@
           style="align-items: center; justify-content: center"
         >
           <i class="fa-regular fa-envelope"></i>
-          <span>Email de Contato</span>
+          <h3>Email de Contato:</h3>
+          <span>logictech@gmail.com</span>
         </div>
       </div>
     </div>
@@ -84,6 +91,7 @@
   flex-direction: column;
 }
 #informations {
+  padding: 10px;
   display: flex;
   flex-direction: row;
 }
@@ -94,8 +102,12 @@ i {
   font-size: 40px;
   color: white;
 }
-span {
+h3 {
   font-size: 20px;
+  color: white;
+}
+span {
+  font-size: 15px;
   color: white;
 }
 input {
@@ -104,6 +116,12 @@ input {
 
 textarea {
   background-color: rgb(157, 157, 157);
+}
+
+.col-form-label {
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 @media (max-width: 767px) {
@@ -119,20 +137,33 @@ textarea {
   #informations {
     display: flex;
     flex-direction: column;
+    padding: 10px;
   }
   i {
-    font-size: 70px;
+    font-size: 40px;
+    color: white;
+  }
+  h3 {
+    font-size: 30px;
     color: white;
   }
   span {
-    font-size: 30px;
+    font-size: 20px;
     color: white;
   }
   input {
     background-color: rgb(157, 157, 157); /* Fundo amarelo claro */
   }
 
+  input:focus {
+    background-color: rgb(157, 157, 157); /* Fundo amarelo claro */
+  }
+
   textarea {
+    background-color: rgb(157, 157, 157); /* Fundo Verde claro */
+  }
+
+  textarea:focus {
     background-color: rgb(157, 157, 157); /* Fundo Verde claro */
   }
   input#name,

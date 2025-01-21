@@ -20,7 +20,7 @@
           <div class="carousel-caption d-md-block">
             <h2>Como podemos te ajudar?</h2>
             <p>Conte conosco para te ajudar a com seu seu computador!</p>
-            <a href="" class="main-btn">Ver Serviços</a>
+            <a @click="scrollToBottom" class="main-btn">Ver Serviços</a>
           </div>
         </div>
         <div class="carousel-item">
@@ -31,7 +31,7 @@
           />
           <div class="carousel-caption d-md-block">
             <h2>Onde atendemos?</h2>
-            <p>Veja se onde atendemos para te ajudarmos da melhor forma.</p>
+            <p>Veja as regiões onde atendemos para te ajudarmos da melhor forma.</p>
             <a href="" class="main-btn">Ver mapa</a>
           </div>
         </div>
@@ -44,7 +44,7 @@
           <div class="carousel-caption d-md-block">
             <h2>Solicitar serviço</h2>
             <p>Clique no botão abaixo e envie sua solicitação.</p>
-            <a href="" class="main-btn">Solicitar serviço</a>
+            <a href="/contact" class="main-btn">Solicitar serviço</a>
           </div>
         </div>
       </div>
@@ -117,6 +117,14 @@
   <script>
 export default {
   name: "Home",
+  methods: {
+    scrollToBottom() {
+      this.$nextTick(() => {
+        const servicesSection = document.getElementById('services');
+        servicesSection.scrollIntoView({ behavior: 'smooth' });
+      });
+    }
+  }
 };
 </script>
   
