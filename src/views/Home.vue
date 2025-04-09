@@ -8,7 +8,7 @@
           class="active"
         ></li>
         <li data-bs-target="#mainSlider" data-bs-slide-to="1"></li>
-        <li data-bs-target="#mainSlider" data-bs-slide-to="2"></li>
+        <!-- <li data-bs-target="#mainSlider" data-bs-slide-to="2"></li> -->
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -23,7 +23,7 @@
             <a @click="scrollToBottom" class="main-btn">Ver Serviços</a>
           </div>
         </div>
-        <div class="carousel-item">
+        <!-- <div class="carousel-item">
           <img
             src="/src/assets/Home/slide-1.jpg"
             alt="Redes Sociais"
@@ -34,7 +34,7 @@
             <p>Veja as regiões onde atendemos para te ajudarmos da melhor forma.</p>
             <a href="" class="main-btn">Ver mapa</a>
           </div>
-        </div>
+        </div> -->
         <div class="carousel-item">
           <img
             src="/src/assets/Home/slide-2.jpg"

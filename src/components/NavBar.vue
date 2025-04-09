@@ -32,9 +32,10 @@
             <li class="nav-item">
               <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
+            <!-- TODO: Implemantar nova aba -->
+            <!-- <li class="nav-item">
               <a class="nav-link" href="#">Regiões de atendimento</a>
-            </li>
+            </li> -->
             <li class="nav-item">
               <a class="nav-link" href="/contact">Solicitar serviço</a>
             </li>
