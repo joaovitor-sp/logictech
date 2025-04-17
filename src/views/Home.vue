@@ -1,4 +1,4 @@
-D<template>
+<template>
   <div class="container-fluid" style="background-color: black">
     <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
       <ol class="carousel-indicators">
