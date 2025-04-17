@@ -1,4 +1,4 @@
-<template>
+D<template>
   <div class="container-fluid" style="background-color: black">
     <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
       <ol class="carousel-indicators">
@@ -72,7 +72,7 @@
         class="service"
       >
         <img
-          src="/src/assets/Home/manutencao.jpeg"
+          src="/src/assets/Home/manutenção.jpg"
           alt="manutenção"
         />
         <div class="service-information">
@@ -210,7 +210,7 @@ h1 {
 }
 
 .service img {
-  width: 280px;
+  width: 500px;
   height: 280px;
   margin: 16px;
 }

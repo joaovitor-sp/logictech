@@ -2,7 +2,7 @@
     <header>
     <nav
       class="navbar navbar-expand-lg navbar-dark px-4"
-      style="background-color: #871cbf"
+      style="background-color: #000000"
     >
       <div class="container-fluid">
         <img
@@ -12,7 +12,7 @@
         /> 
           <h3
           class="m-0" 
-          style="font-weight: 750; font-size: 30px; font-family: 'Times New Roman', Times, serif;">LogicTech</h3>
+          style="font-weight: 750; font-size: 30px; font-family: 'Times New Roman', Times, serif; color: white; ">LogicTech</h3>
         <button
           class="navbar-toggler"
           type="button"
