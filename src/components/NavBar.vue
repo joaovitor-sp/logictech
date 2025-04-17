@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <img
           src="/src/assets/NavBar/logo.png"
-          style="max-width: 50px; max-height: 50px"
+          style="max-width: 100px; max-height: 50px"
           alt="Logo"
         /> 
           <h3
