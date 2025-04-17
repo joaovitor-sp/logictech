@@ -77,10 +77,10 @@
         />
         <div class="service-information">
           <h3>Montagem de Computadores</h3>
-          <span>Comprou seu PC Gamer e não consegue montar?<br>
-            Montamos PCs Gamers em domicílio, <br>montagem completa e otimizada<br>
-            com instalação de sistema operacional e configuração<br>
-            para o melhor desempenho. </span>
+          <span>Adquiriu seu PC Gamer e está com dificuldades para montá-lo?<br>
+            Oferecemos serviço de montagem profissional em domicílio, <br>com instalação completa do sistema operacional,<br>
+            configurações otimizadas e ajustes para garantir <br>
+            o máximo desempenho do seu equipamento. </span>
         </div>
       </div>
       <div class="service">
