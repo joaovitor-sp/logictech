@@ -90,9 +90,10 @@
         />
         <div class="service-information">
           <h3>Manutenção e Otimização</h3>
-          <span>Otimizamos o desempenho do seu PC <br>
-            para aproveitar mais o potêncial do seu computador,<br> 
-            solução de problemas e manutenção.
+          <span>Realizamos a manutenção completa e a otimização <br>
+            do desempenho do seu computador,<br> 
+            solucionando problemas e garantindo que você <br> 
+            aproveite ao máximo o potencial da sua máquina
           </span>
         </div>
       </div>
