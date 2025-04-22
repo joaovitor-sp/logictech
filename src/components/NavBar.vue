@@ -63,6 +63,9 @@
 <style scoped>
 a.nav-link {
   padding: 4px;
-  color: white;
+  color: white !important;
+}
+a .fab {
+  color:white;
 }
 </style>
