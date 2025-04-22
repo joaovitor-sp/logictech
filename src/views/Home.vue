@@ -93,7 +93,7 @@
           <span>Realizamos a manutenção completa e a otimização <br>
             do desempenho do seu computador,<br> 
             solucionando problemas e garantindo que você <br> 
-            aproveite ao máximo o potencial da sua máquina
+            aproveite ao máximo o potencial da sua máquina.
           </span>
         </div>
       </div>

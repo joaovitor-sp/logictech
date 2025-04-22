@@ -40,16 +40,16 @@
               <a class="nav-link" href="/contact">Solicitar serviço</a>
             </li>
             <li class="nav-item d-flex flex-row">
-              <a class="nav-link disabled" href="#"
+              <a class="nav-link" href="https://wa.me/31992528746"
                 ><i class="fab fa-whatsapp"></i
               ></a>
-              <a class="nav-link disabled" href="#"
+              <a class="nav-link" href="https://www.instagram.com/_logictech/"
                 ><i class="fab fa-instagram"></i
               ></a>
-              <a class="nav-link disabled" href="#"
+              <a class="nav-link" href="https://www.youtube.com/channel/UCYabfaoYpD2lJaSl_EsWr-Q"
                 ><i class="fab fa-youtube"></i
               ></a>
-              <a class="nav-link disabled" href="#"
+              <a class="nav-link" href="https://www.twitch.tv/logicctech"
                 ><i class="fab fa-twitch"></i
               ></a>
             </li>
@@ -63,5 +63,6 @@
 <style scoped>
 a.nav-link {
   padding: 4px;
+  colo: white;
 }
 </style>
