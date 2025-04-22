@@ -63,6 +63,6 @@
 <style scoped>
 a.nav-link {
   padding: 4px;
-  colo: white;
+  color: white;
 }
 </style>
