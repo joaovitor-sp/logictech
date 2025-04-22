@@ -68,4 +68,13 @@ a.nav-link {
 a .fab {
   color:white;
 }
+
+
+
+a.nav-link:hover {
+  color: rgb(0, 140, 255) !important;
+}
+a .fab:hover {
+  color:rgb(0, 140, 255);
+}
 </style>
