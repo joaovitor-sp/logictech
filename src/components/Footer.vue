@@ -14,19 +14,22 @@
         </h4>
       </div>
       <ul id="social-links">
-        <li>
-          <a href="#"><i class="fab fa-whatsapp"></i> whatsapp</a>
-        </li>
-        <li>
-          <a href="#"><i class="fab fa-instagram"></i> instagram</a>
-        </li>
-        <li>
-          <a href="#"><i class="fab fa-youtube"></i> youtube</a>
-        </li>
-        <li>
-          <a href="#"><i class="fab fa-twitch"></i> twitch</a>
-        </li>
-      </ul>
+  <li>
+    <a href="https://wa.me/31992528746" target="_blank">
+      <i class="fab fa-whatsapp"></i> whatsapp
+    </a>
+  </li>
+  <li>
+    <a href="https://instagram.com/logictech_" target="_blank">
+      <i class="fab fa-instagram"></i> instagram
+    </a>
+  </li>
+  <li>
+    <a href="https://youtube.com/seucanal" target="_blank">
+      <i class="fab fa-youtube"></i> youtube
+    </a>
+  </li>
+</ul>
     </div>
     <div class="topic m-3">
       <div class="topic-header">
