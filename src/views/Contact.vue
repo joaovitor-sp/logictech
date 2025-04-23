@@ -55,7 +55,7 @@
           style="align-items: center; justify-content: center">
           <i class="fa-regular fa-envelope"></i>
           <h3>Email de Contato:</h3>
-          <span>logictech@gmail.com</span>
+          <span>logictechinformatica@gmail.com</span>
         </div>
       </div>
     </div>
