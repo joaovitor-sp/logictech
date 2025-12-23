@@ -1,281 +1,168 @@
 <template>
-  <div class="container-fluid" style="background-color: black">
-    <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
-      <ol class="carousel-indicators">
-        <li
-          data-bs-target="#mainSlider"
-          data-bs-slide-to="0"
-          class="active"
-        ></li>
-        <li data-bs-target="#mainSlider" data-bs-slide-to="1"></li>
-        <!-- <li data-bs-target="#mainSlider" data-bs-slide-to="2"></li> -->
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            src="/src/assets/Home/slide-0.jpg"
-            alt="Apresentação"
-            class="d-block w-100"
-          />
-          <div class="carousel-caption d-md-block">
-            <h2>Como podemos te ajudar?</h2>
-            <p>Conte conosco para te ajudar a com seu seu computador!</p>
-            <a @click="scrollToBottom" class="main-btn">Ver Serviços</a>
-          </div>
-        </div>
-        <!-- <div class="carousel-item">
-          <img
-            src="/src/assets/Home/slide-1.jpg"
-            alt="Redes Sociais"
-            class="d-block w-100"
-          />
-          <div class="carousel-caption d-md-block">
-            <h2>Onde atendemos?</h2>
-            <p>Veja as regiões onde atendemos para te ajudarmos da melhor forma.</p>
-            <a href="" class="main-btn">Ver mapa</a>
-          </div>
-        </div> -->
-        <div class="carousel-item">
-          <img
-            src="/src/assets/Home/slide-2.jpg"
-            alt="Solicitação de serviço"
-            class="d-block w-100"
-          />
-          <div class="carousel-caption d-md-block">
-            <h2>Solicitar serviço</h2>
-            <p>Clique no botão abaixo e envie sua solicitação.</p>
-            <a href="/contact" class="main-btn">Solicitar serviço</a>
-          </div>
-        </div>
-      </div>
-      <a
-        href="#mainSlider"
-        class="carousel-control-prev"
-        role="button"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" area-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        href="#mainSlider"
-        class="carousel-control-next"
-        role="button"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" area-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    <div id="services" class="col">
-      <div
-        class="service"
-      >
-        <img
-          src="/src/assets/Home/manutenção.jpg"
-          alt="manutenção"
-        />
+  <div class="container-fluid bg-dark">
+    <HomeCarousel />
+    <div id="services" class="services">
+      <div v-for="service in services" :key="service.title" class="service">
+        <img :src="service.image" :alt="service.title" />
         <div class="service-information">
-          <h3>Montagem de Computadores</h3>
-          <span>Adquiriu seu PC Gamer e está com dificuldades para montá-lo?<br>
-            Oferecemos serviço de montagem profissional em domicílio, <br>com instalação completa do sistema operacional,<br>
-            configurações otimizadas e ajustes para garantir <br>
-            o máximo desempenho do seu equipamento. </span>
-        </div>
-      </div>
-      <div class="service">
-        <img
-          src="/src/assets/Home/montagem.jpg"
-          alt="montagem"
-        />
-        <div class="service-information">
-          <h3>Manutenção e Otimização</h3>
-          <span>Realizamos a manutenção completa e a otimização <br>
-            do desempenho do seu computador,<br> 
-            solucionando problemas e garantindo que você <br> 
-            aproveite ao máximo o potencial da sua máquina.
-          </span>
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
         </div>
       </div>
     </div>
-    <h2 style="display: flex; justify-content: center; color: white;"> E entre outros...</h2>
-    <div id="service-list" class="p-0 m-5" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; color: white;">
-        <span><i class="fa-regular fa-circle-check"></i>Diagnóstico e correção de defeitos</span>
-        <span><i class="fa-regular fa-circle-check"></i>Backups e recuperação de dados</span>
-        <span><i class="fa-regular fa-circle-check"></i>Correção de inicialização</span>
-        <span><i class="fa-regular fa-circle-check"></i>Limpeza interna</span>
-        <span><i class="fa-regular fa-circle-check"></i>Upgrades e otimização</span>
-        <span><i class="fa-regular fa-circle-check"></i>Correção de tela azul</span>
-        <span><i class="fa-regular fa-circle-check"></i>Instalação de computadores novos</span>
-        <span><i class="fa-regular fa-circle-check"></i>Remoção de vírus e spywares</span>
-        <span><i class="fa-regular fa-circle-check"></i>Instalação e remoção de softwares</span>
-        <span><i class="fa-regular fa-circle-check"></i>Configuração de emails e contas online</span>
-        <span><i class="fa-regular fa-circle-check"></i>Formatação e reinstalação do sistema operacional</span>
+
+    <h2 class="more-services">E entre outros...</h2>
+
+    <div id="service-list" class="service-list">
+      <span v-for="item in serviceList" :key="item">
+        <i class="fa-regular fa-circle-check"></i>
+        {{ item }}
+      </span>
     </div>
   </div>
 </template>
   
-  <script>
-export default {
-  name: "Home",
-  methods: {
-    scrollToBottom() {
-      this.$nextTick(() => {
-        const servicesSection = document.getElementById('services');
-        servicesSection.scrollIntoView({ behavior: 'smooth' });
-      });
-    }
-  }
-};
+  <script setup>
+import HomeCarousel from "../components/home/HomeCarousel.vue";
+
+const services = [
+  {
+    title: "Montagem de Computadores",
+    image: new URL("@/assets/Home/manutenção.jpg", import.meta.url),
+    description: `
+      Adquiriu seu PC Gamer e está com dificuldades para montá-lo?
+      Oferecemos serviço de montagem profissional em domicílio,
+      com instalação completa do sistema operacional,
+      configurações otimizadas e ajustes para garantir
+      o máximo desempenho do seu equipamento.
+    `,
+  },
+  {
+    title: "Manutenção e Otimização",
+    image: new URL("@/assets/Home/montagem.jpg", import.meta.url),
+    description: `
+      Realizamos a manutenção completa e a otimização
+      do desempenho do seu computador,
+      solucionando problemas e garantindo que você
+      aproveite ao máximo o potencial da sua máquina.
+    `,
+  },
+];
+
+const serviceList = [
+  "Diagnóstico e correção de defeitos",
+  "Backups e recuperação de dados",
+  "Correção de inicialização",
+  "Limpeza interna",
+  "Upgrades e otimização",
+  "Correção de tela azul",
+  "Instalação de computadores novos",
+  "Remoção de vírus e spywares",
+  "Instalação e remoção de softwares",
+  "Configuração de emails e contas online",
+  "Formatação e reinstalação do sistema operacional",
+];
 </script>
   
-  <style scoped>
-.home-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centraliza horizontalmente */
-  padding: 20px;
-  background-color: #f0f0f0; /* Um fundo cinza claro */
-  border-radius: 8px; /* Bordas arredondadas */
-}
-
-h1 {
-  color: #333; /* Cor do título */
-  margin-bottom: 10px;
-}
-
-/* Slider */
+<style scoped>
+/* Container geral */
 .container-fluid {
   padding: 0;
   margin: 0;
 }
 
-#mainSlider .carousel-inner,
-#mainSlider .carousel-item {
-  height: 90vh;
-}
-
-#mainSlider .carousel-caption {
-  top: 30%;
-}
-
-#mainSlider .carousel-caption h2 {
-  font-size: 50px;
-  margin-bottom: 30px;
-}
-#mainSlider .carousel-caption p {
-  font-size: 22px;
-  font-weight: 300;
-  margin-bottom: 100px;
-  color: #fff;
-}
-
-.main-btn {
-  text-decoration: none;
-  background-color: #65daf9;
-  color: #fff;
-  text-transform: uppercase;
-  width: 200px;
-  height: 60px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  border: 3px solid transparent;
-  transition: 0.5s;
-}
-
-.main-btn:hover {
-  text-decoration: none;
-  color: #fff;
-  background-color: transparent;
-  border-color: #65daf9;
-}
-
-.carousel-indicators .active {
-  background-color: #65daf9;
-}
-
-.carousel-item img {
-  filter: brightness(0.6) contrast(1.2);
-}
-
+/* ===== SEÇÃO DE SERVIÇOS ===== */
 .services {
-  width: 100%;
-  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 60px 5%;
 }
 
+/* Card de serviço */
 .service {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 10px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
+/* Alterna imagem */
+.service:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Imagem do serviço */
 .service img {
-  width: 500px;
-  height: 280px;
-  margin: 16px;
+  width: 480px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
 }
 
+/* Texto do serviço */
 .service-information {
-  color: white;
-  margin: 30px;
-  margin-right: 10px;
+  max-width: 520px;
+  color: #fff;
 }
 
-.service-information span {
+.service-information h3 {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.service-information p {
+  font-size: 16px;
+  line-height: 1.6;
   font-weight: 300;
 }
 
-#service-list span {
+/* ===== TÍTULO "E ENTRE OUTROS" ===== */
+.more-services {
+  text-align: center;
+  color: #fff;
+  margin: 60px 0 30px;
+  font-size: 28px;
+}
+
+/* ===== LISTA DE SERVIÇOS ===== */
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px 40px;
+  padding: 0 5% 80px;
+  color: #fff;
+}
+
+.service-list span {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-list i {
+  color: #65daf9;
   font-size: 20px;
 }
 
-#service-list span i {
-  margin-right: 10px;
-  color: #65daf9;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .container {
-    padding: 20px 0;
+/* ===== RESPONSIVO ===== */
+@media (max-width: 992px) {
+  .service {
+    flex-direction: column;
+    text-align: center;
   }
 
-  /* slider */
-  #mainSlider .carousel-inner,
-  #mainSlider .carousel-item {
-    height: auto;
+  .service:nth-child(even) {
+    flex-direction: column;
   }
 
-  #mainSlider .carousel-caption h2 {
-    font-size: 24px;
+  .service img {
+    width: 100%;
+    max-width: 520px;
   }
 
-  #mainSlider .carousel-caption p {
-    font-size: 12px;
-    margin-bottom: 35px;
-  }
-
-  .carousel-caption {
-    left: 10%;
-    right: 10%;
-  }
-}
-
-@media (max-width: 425px) {
-  /* slider */
-  #mainSlider .carousel-caption {
-    top: 5%;
-    align-content: center;
-  }
-
-  #mainSlider .carousel-caption h2 {
-    font-size: 18px;
-    margin-bottom: 40px;
-  }
-
-  #mainSlider .carousel-caption p {
-    display: none;
+  .service-information {
+    max-width: 100%;
   }
 }
 </style>

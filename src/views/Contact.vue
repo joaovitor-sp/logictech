@@ -1,60 +1,71 @@
 <template>
-  <div id="content-page-contact-container" class="container-fluid p-0 m-0">
-    <div id="content-page-contact-row" class="p-0 m-0 w-100 h-100">
-      <div class="col p-5" style="background-color: black">
-        <div class="row pt-4">
-          <label class="col-1 col-form-label">Nome:</label>
-          <input type="text" class="col-10 form-control" id="name" placeholder="Digite seu nome" v-model="nameInput" />
+  <div class="container-fluid bg-dark min-vh-100 p-2 contact-page">
+    <div class="contact-wrapper">
+      <!-- FORMULÁRIO -->
+      <form class="contact-form">
+        <h2>Entre em contato</h2>
+
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" v-model="nameInput" class="form-control" />
         </div>
-        <div class="row pt-4">
-          <label for="email" class="col-1 col-form-label">Email:</label>
-          <input type="text" class="col-10 form-control" id="email" placeholder="Digite seu email"
-            v-model="emailInput" />
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" v-model="emailInput" class="form-control" />
         </div>
-        <div class="row pt-4">
-          <label for="phoneNumber" class="col-1 col-form-label">Celular:</label>
-          <input type="text" class="col-10 form-control" id="phoneNumber" placeholder="Digite seu whatsapp"
-            v-model="phoneNumberInput" />
+
+        <div class="form-group">
+          <label>Celular</label>
+          <input type="text" v-model="phoneNumberInput" class="form-control" />
         </div>
-        <div class="row pt-4">
-          <label for="about" class="col-1 col-form-label">Assunto:</label>
-          <input type="text" class="col-10 form-control" id="about" placeholder="Digite o assunto"
-            v-model="aboutInput" />
+
+        <div class="form-group">
+          <label>Assunto</label>
+          <input type="text" v-model="aboutInput" class="form-control" />
         </div>
-        <div class="row pt-4">
-          <label class="col-form-label">Mensagem:</label>
+
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea
+            rows="5"
+            v-model="descriptionInput"
+            class="form-control"
+          ></textarea>
         </div>
-        <div class="row pt-4" style="padding-right: 10%;">
-          <textarea type="text" class="form-control" id="description" rows="5" v-model="descriptionInput"></textarea>
-        </div>
-        <div class="row pt-4 justify-content-end" style="padding-right: 10%;">
-          <button type="button" @click="sendForms" class="btn btn-primary" style="width: auto;">Enviar
-            Formulário</button>
-        </div>
-        <div class="row pt-4 justify-content-end" style="padding-right: 10%;">
-          <h3 id="feedBackSend"></h3>
-        </div>
-      </div>
-      <div class="flex-wrap justify-items-stretch" id="informations" style="background-color: black;">
-        <div class="card-information col d-flex flex-column" id="location"
-          style="align-items: center; justify-content: center">
+
+        <button class="btn btn-primary" @click.prevent="sendForms">
+          Enviar formulário
+        </button>
+
+        <p
+          v-if="feedbackMessage"
+          :class="
+            feedbackType === 'success' ? 'feedback-success' : 'feedback-error'
+          "
+        >
+          {{ feedbackMessage }}
+        </p>
+      </form>
+
+      <!-- INFORMAÇÕES -->
+      <div class="contact-info">
+        <div class="info-card">
           <i class="fa-solid fa-location-dot"></i>
           <h3>Localidade</h3>
-          <span>Atendemos por visita Técnica<br>
-            em BH e região de Contagem</span>
+          <span>BH e região de Contagem</span>
+        </div>
 
-        </div>
-        <div class="card-information col d-flex flex-column" id="whatsapp"
-          style="align-items: center; justify-content: center;">
+        <div class="info-card">
           <i class="fa-brands fa-whatsapp"></i>
-          <h3>Whatsapp:</h3>
-          <span>(31)99252-8746</span>
-          <span>(31)99760-2403</span>
+          <h3>Whatsapp</h3>
+          <span>(31) 99252-8746</span>
+          <span>(31) 99760-2403</span>
         </div>
-        <div class="card-information col d-flex flex-column" id="email"
-          style="align-items: center; justify-content: center">
+
+        <div class="info-card">
           <i class="fa-regular fa-envelope"></i>
-          <h3>Email de Contato:</h3>
+          <h3>Email</h3>
           <span>logictech@gmail.com</span>
         </div>
       </div>
@@ -62,162 +73,180 @@
   </div>
 </template>
 
+<script setup>
+import { ref } from "vue";
+import emailjs from "@emailjs/browser";
+
+const nameInput = ref("");
+const emailInput = ref("");
+const phoneNumberInput = ref("");
+const aboutInput = ref("");
+const descriptionInput = ref("");
+
+const feedbackMessage = ref("");
+const feedbackType = ref(""); // success | error
+
+function isValidEmail(email) {
+  const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regex.test(email);
+}
+
+function validateForm() {
+  if (!nameInput.value.trim()) {
+    return "Por favor, informe seu nome.";
+  }
+
+  if (!emailInput.value.trim()) {
+    return "Por favor, informe seu email.";
+  }
+
+  if (!isValidEmail(emailInput.value)) {
+    return "Por favor, informe um email válido.";
+  }
+
+  if (!aboutInput.value.trim()) {
+    return "Por favor, informe o assunto.";
+  }
+
+  if (!descriptionInput.value.trim()) {
+    return "Por favor, escreva sua mensagem.";
+  }
+
+  return null;
+}
+
+async function sendForms() {
+  feedbackMessage.value = "";
+  feedbackType.value = "";
+
+  const error = validateForm();
+  if (error) {
+    feedbackMessage.value = error;
+    feedbackType.value = "error";
+    return;
+  }
+
+  const serviceId = "service_bcxf6ih";
+  const templateId = "template_w1h4ban";
+  const userId = "kjTfiD2FFsTA0YAk-";
+
+  const templateParams = {
+    name: nameInput.value,
+    email: emailInput.value,
+    phone: phoneNumberInput.value,
+    title: aboutInput.value,
+    message: descriptionInput.value,
+  };
+
+  try {
+    await emailjs.send(serviceId, templateId, templateParams, userId);
+    feedbackMessage.value =
+      "Mensagem enviada com sucesso! Entraremos em contato em breve.";
+    feedbackType.value = "success";
+
+    // limpa formulário
+    nameInput.value = "";
+    emailInput.value = "";
+    phoneNumberInput.value = "";
+    aboutInput.value = "";
+    descriptionInput.value = "";
+  } catch (err) {
+    console.error(err);
+    feedbackMessage.value =
+      "Não foi possível enviar a mensagem no momento. Tente novamente mais tarde.";
+    feedbackType.value = "error";
+  }
+}
+</script>
+
 <style scoped>
-#content-page-contact-container {
-  flex: 1;
+.contact-page {
+  min-height: 100vh;
+  height: auto;
 }
 
-#content-page-contact-row {
+.contact-wrapper {
   display: flex;
-  flex-direction: column;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-#informations {
-  padding: 10px;
-  display: flex;
-  flex-direction: row;
+/* FORM */
+.contact-form {
+  flex: 2;
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 8px;
 }
 
-#informations div span {
-  text-align: center;
-}
-
-i {
-  font-size: 40px;
+.contact-form h2 {
   color: white;
+  margin-bottom: 20px;
 }
 
-h3 {
-  font-size: 20px;
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
   color: white;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block;
 }
 
-span {
-  font-size: 15px;
-  color: white;
+.form-control {
+  background: #9d9d9d;
+  border: none;
 }
 
-input {
-  background-color: rgb(157, 157, 157);
+.form-control:focus {
+  background: #9d9d9d;
+  box-shadow: none;
 }
 
-textarea {
-  background-color: rgb(157, 157, 157);
-}
-
-.col-form-label {
-  color: white;
-  font-size: 20px;
+/* FEEDBACK */
+.feedback-success {
+  color: #28a745;
   font-weight: 600;
 }
 
-@media (max-width: 767px) {
-
-  #location,
-  #whatsapp {
-    width: 50%;
-  }
+.feedback-error {
+  color: #dc3545;
+  font-weight: 600;
 }
 
-@media (min-width: 768px) {
-  #content-page-contact-row {
-    display: flex;
-    flex-direction: row;
-  }
+/* INFO */
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 
-  #informations {
-    display: flex;
+.info-card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.info-card i {
+  font-size: 36px;
+  color: #65daf9;
+  margin-bottom: 10px;
+}
+
+.info-card h3,
+.info-card span {
+  color: white;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .contact-wrapper {
     flex-direction: column;
-    padding: 10px;
-  }
-
-  i {
-    font-size: 40px;
-    color: white;
-  }
-
-  h3 {
-    font-size: 30px;
-    color: white;
-  }
-
-  span {
-    font-size: 20px;
-    color: white;
-  }
-
-  input {
-    background-color: rgb(157, 157, 157);
-    /* Fundo amarelo claro */
-  }
-
-  input:focus {
-    background-color: rgb(157, 157, 157);
-    /* Fundo amarelo claro */
-  }
-
-  textarea {
-    background-color: rgb(157, 157, 157);
-    /* Fundo Verde claro */
-  }
-
-  textarea:focus {
-    background-color: rgb(157, 157, 157);
-    /* Fundo Verde claro */
-  }
-
-  input#name,
-  input#about,
-  input#phoneNumber,
-  input#email {
-    width: 50vw;
   }
 }
 </style>
-
-<script>
-import emailjs from '@emailjs/browser';
-
-export default {
-  name: "Contact",
-  data() {
-    return {
-      nameInput: '',
-      emailInput: '',
-      phoneNumberInput: '',
-      aboutInput: '',
-      descriptionInput: ''
-    }
-  },
-  methods: {
-    sendForms() {
-      const serviceId = 'service_ckzzscc';
-      const templateId = 'template_w1h4ban';
-      const userId = 'kjTfiD2FFsTA0YAk-';
-
-      const templateParams = {
-        name: this.nameInput,
-        email: this.emailInput,
-        phone: this.phoneNumberInput,
-        title: this.aboutInput,
-        message: this.descriptionInput
-      };
-      console.log("está na função");
-      const feedbackSend = document.getElementById('feedBackSend');
-      emailjs.send(serviceId, templateId, templateParams, userId)
-        .then((response) => {
-          console.log('E-mail enviado com sucesso!', response);
-          feedbackSend.textContent = 'E-mail enviado com sucesso!';
-          feedbackSend.style.color = 'green'
-          alert('E-mail enviado com sucesso!');
-        })
-        .catch((error) => {
-          console.error('Erro ao enviar o e-mail:', error);
-          feedbackSend.textContent = 'Erro ao enviar o e-mail!';
-          feedbackSend.style.color = 'red'
-          alert('Erro ao enviar o e-mail.');
-        });
-    }
-  }
-};
-</script>
