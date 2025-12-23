@@ -6,7 +6,7 @@ O projeto foi criado com foco em **organização de código, componentização e
 🌐 **Acesse o site:**  
 👉 https://logictech.vercel.app/
 
-<img width="1898" height="870" alt="LogicTech Home" src="https://github.com/user-attachments/assets/71a2d3dd-19f7-4991-ac14-644bbaea2294" />
+<img width="1905" height="868" alt="image" src="https://github.com/user-attachments/assets/113e8f24-3b88-4abe-a63a-d4f2e1561d7a" />
 
 ---
 
